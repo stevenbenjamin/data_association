@@ -2,7 +2,6 @@ from unittest import TestCase
 import os
 from importer.file_import import *
 
-
 def files(dirname, filter_f):
     fs = []
     for r, d, f in os.walk(dirname):
@@ -27,9 +26,10 @@ class TestImport(TestCase):
         mcmis = curr_dir() + "/../data/sample/MCMIS"
         for f in files(mcmis, lambda f: f.endswith(".txt")):
             c = columns(f)
-            print("%s %s" % (f, len(c)))
+            self.assertGreater(len(c),1, "found {} headers for file {}".format(len(c), f))
 
         landi = curr_dir() + "/../data/sample/L_AND_I"
         for f in files(landi, lambda f: f.endswith(".txt")):
             c = columns(f, lambda s: s.split("~"))
-            print("%s %s" % (f, len(c)))
+            self.assertGreater(len(c), 1, "found {} headers for file {}".format(len(c), f))            
+
