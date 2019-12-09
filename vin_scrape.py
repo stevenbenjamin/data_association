@@ -2,17 +2,18 @@
 import json
 import requests
 
-#for more examples, see https://vpic.nhtsa.dot.gov/api/#
+# for more examples, see https://vpic.nhtsa.dot.gov/api/#
 
-BASE_URL="https://vpic.nhtsa.dot.gov/api/vehicles/"
-VIN="10TCGKY10VS062023"
+BASE_URL = "https://vpic.nhtsa.dot.gov/api/vehicles/"
+VIN = "10TCGKY10VS062023"
+
 
 def decode_vin(vin):
-    r=requests.get("{}/{}/{}?format=json".format(BASE_URL,"DecodeVin",vin))
+    r = requests.get("{}/{}/{}?format=json".format(BASE_URL, "DecodeVin", vin))
     return json.loads(r.text)
-    
 
-t=decode_vin("10TCGKY10VS062023")
+
+t = decode_vin("10TCGKY10VS062023")
 
 # output:
 # {

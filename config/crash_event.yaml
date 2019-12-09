@@ -1,0 +1,13 @@
+#dtypes correspond to sqlalchemy.types, e.g
+#https://www.oreilly.com/library/view/essential-sqlalchemy/9780596516147/ch04.html
+name: crash_event
+index_label: CRASH_EVENT_ID
+index: False
+file_separator: "\t"
+keep_default_na: False
+types:
+  - CRASH_EVENT_ID: INTEGER
+  - CRASH_ID: INTEGER
+  - SEQ_NO: INTEGER
+  - EVENT_ID: INTEGER
+  - EVENT_OTHER_DESC: VARCHAR(100)
